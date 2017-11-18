@@ -1,0 +1,16 @@
+{
+  "cv": [
+    {
+      "name": "Dr. Bartomeu Massuti",
+      "description": "<li>Oncólogo Médico.</li><li>Jefe de Servicio de Oncología Médica del Hospital Universitario de Alicante.</li><li>Profesor Asociado Universidad Miguel Hernández de Elche.</li><li>Miembro Fundador y Secretario del Grupo Español de Cáncer de Pulmón.</li>"
+    },    
+    {
+      "name": "Dr. Manmeet Ahluwalia",
+      "description": "<li>Oncólogo Médico.</li><li>Jefe de operaciones en el Centro de Tumores Cerebrales y Neurooncología Rose Ella Burkhardt (BBTC), Cleveland Clinic.</li><li>Se especializa en el tratamiento de pacientes con tumores cerebrales y metástasis cerebrales.</li><li>Es profesor asociado en el Departamento de Medicina, Cleveland Clinic Lerner College of Medicine de la Case Western Reserve University.</li>"
+    },
+    {
+      "name": "Dr. Juan Carlos Gómez de la Torre",
+      "description": "<li>Patólogo Clínico-Infectólogo.</li><li>Dirección Médica Adjunta en Laboratorios ROE.</li><li>Encargado del Laboratorio de Biología Molecular en Laboratorios ROE.</li><li>Médico Asistente del Servicio de Infectología del Hospital FAP.</li>"
+    }
+  ]
+}

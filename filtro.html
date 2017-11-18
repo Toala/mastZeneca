@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.:: Empaworld ::.</title>
+	
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/filtro.css">
+</head>
+
+<body>
+	<img src="../img/home/logo_empa.png" class="logo" />
+	<div class="div-preguntas contenedores respuestas"></div>
+	
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {		
+			var socket = io.connect();
+
+			socket.on("experto", function(data){
+				$(".div-preguntas").html("");
+				
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].estado == '0') {
+						$(".div-preguntas").append('<div class="row listo-preguntas algo-'+i+'"><div class="col-sm-10">'+(i+1)+'.- '+data[i].comentario+'</div><div class="col-sm-2"><div class="btn-mostrar" id="'+data[i].idtanger_live+'-'+data[i].estado+'">Filtrar</div></div></div>');
+					}else{
+						$(".div-preguntas").append('<div class="row listo-preguntas algo-'+i+'"><div class="col-sm-10">'+(i+1)+'.- '+data[i].comentario+'</div><div class="col-sm-2"><div class="btn-mostrar btn-regresar" id="'+data[i].idtanger_live+'-'+data[i].estado+'">Remover</div></div></div>');
+					}
+					if (data[i].mostrada == '1') {
+						$(".algo-"+i+" .btn-mostrar").hide();
+					}
+					
+				}
+				
+				$(".btn-mostrar").click(function (ide) {
+					var id = $(this).attr("id");
+					socket.emit("updateexperto",id);
+				});
+			});		
+		});
+	</script>
+</body>
+</html>

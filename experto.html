@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.:: Empaworld ::.</title>
+	
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/filtro.css">
+</head>
+
+<body>
+	<img src="../img/home/logo_empa.png" class="logo" />
+	<div class="div-preguntas contenedores respuestas"></div>
+
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {					
+			var socket = io.connect();
+
+			socket.on("experto",function(data){
+				$(".div-preguntas").html("");
+				
+				for (var i = 0, p = 1; i < data.length; i++) {
+					if (data[i].estado=="1" && (data[i].mostrada == 0 || data[i].mostrada == 2)) {
+						$(".div-preguntas").append('<div class="row listo-preguntas"><div class="col-sm-12">'+p+'.- '+data[i].comentario+'</div></div>');
+						p++;
+					};
+					
+				}				
+			});			
+		});
+	</script>
+</body>
+</html>
